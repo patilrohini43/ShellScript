@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+stringarray=('PID' '760')
+numberarray=('PPID' '1')
+anotherfieldarray=('CMD' '/user/bin')
+memoryarray=('%MEM' ' 3.5')
+cpuarray=('%CPU' '0.0')
+array_size=4
+
+for((i=0;i<array_size;i++))
+do
+    echo ${stringarray[$i]} $'\x1d' ${numberarray[$i]} $'\x1d' ${anotherfieldarray[$i]} stringarray=('test' 'some thing' 'very long long long string' 'blah')
+numberarray=(1 22 7777 8888888888)
+anotherfieldarray=('other' 'mixed' 456 'data')
+array_size=4
+
+for((i=0;i<array_size;i++))
+do
+    echo ${stringarray[$i]} $'\x1d' ${numberarray[$i]} $'\x1d' ${anotherfieldarray[$i]}
+done | column -t -s$'\x1d'
+done | column -t -s$'\x1d'
