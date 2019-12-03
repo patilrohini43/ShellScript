@@ -13,3 +13,7 @@ do
 #    echo ${stringarray[$i]} $'\x1d' ${numberarray[$i]} $'\x1d' ${anotherfieldarray[$i]} $'\x1d' ${mem[$i]} $'\x1d' ${cpu[$i]}
  echo ${stringarray[$i]} $'\t' ${numberarray[$i]} $'\t' ${anotherfieldarray[$i]} $'\t' ${mem[$i]} $'\t' ${cpu[$i]}
 done | column -t -s$'\t'
+
+
+
+ ps aux | awk '{print $2 ,"\t",$11,"\t",$3}'
