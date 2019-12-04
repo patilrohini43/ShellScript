@@ -1,13 +1,11 @@
 #!/bin/bash/ -x
 
-echo "Enter number of FlipCoin"
-read num
+
 head=0
 tail=0
-
-for (( i=0 ;i<=num ; i++ ))
+win=11
+while [[ $head -le 11 && $tail -le 11 ]]
 do
-
 random=$(( $RANDOM%2 ))
 echo "random no $random"
 if [ $random -eq 1 ]
@@ -20,7 +18,9 @@ then
 fi
 done
 
-headper=$(( 100*$head/$num ))
-echo "head percentage    $headper"
-tailper=$(( 100*$tail/$num ))
-echo "tail per $tailper"
+if [[ $head -eq $win ]]
+then
+	echo "head win"
+else
+	echo "tail win"
+fi
