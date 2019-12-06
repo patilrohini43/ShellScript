@@ -5,6 +5,7 @@ hours=0
 isFulltime=1
 isHalftime=0
 day=0
+empRate=2000
 
 function getWorking()
 {
@@ -19,23 +20,22 @@ empCheck=$(( RANDOM % 3 ))
 case $empCheck  in
      	$isFulltime)
                 empHrs=8
-				#hours=$(( hours + isFulltime))
-				hours="$( getWorking $(( $isFulltime )) )" 
-				day=$(( day +1 ))
+				    hours="$( getWorking  $empHrs )" 
+						day=$(( day + 1 ))
 						;;
 
 	$isHalftime)
                 empHrs=4
-				#hours=$(( hours + isHalftime ))
-				hours="$( getWorking $(( $isHalftime )) )"
-				day=$(( day +1 ))
-						;;
+                hours="$( getWorking  $empHrs )"
+					day=$(( day + 1))
+										;;
 
     	*)
 		empHrs=0 ;;
 		esac
 done
- salary=$(( empRate * empHrs ))
 
- echo $salary
+echo "Hours ====   $hours"
+salary=$(( empRate * hours ))
+echo $salary
 

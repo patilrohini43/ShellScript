@@ -1,0 +1,21 @@
+#!/bin/bash/ -x
+
+read -p "Enter Number" num
+
+for (( i = 2; i < $num/2; i++ ))
+do
+	if [ $num % $i == 0 ]
+	then
+	check=true
+	else
+	check=false
+	fi
+done
+if [ $check == true ]
+then
+	echo "Prime Number"
+else
+	echo "Not Prime Number"
+fi
+
+
